@@ -4,6 +4,7 @@ Learn how to install JellyGlance, connect your Jellyfin server, and manage your 
 
 <div class="project-links" markdown>
 
+[Live documentation ↗](http://docs.jellyglance.com/)
 [JellyGlance website ↗](https://jellyglance.com/)
 [Application repo ↗](https://github.com/Nerdy-Technician/JellyGlance)
 [Documentation repo ↗](https://github.com/JellyGlance/Documentation)

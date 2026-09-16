@@ -16,13 +16,13 @@ mkdocs serve --dev-addr 127.0.0.1:8000
 
 Open <http://127.0.0.1:8000/>. MkDocs reloads when you edit a page. Press Ctrl+C to stop. The static output is in `site/`; it and `.venv/` are ignored by Git.
 
-For local previews, `SITE_URL` defaults to `http://127.0.0.1:8000/`. To check production metadata:
+The canonical documentation URL defaults to `http://docs.jellyglance.com/`. `mkdocs serve` still provides a local preview at `http://127.0.0.1:8000/`. To set production metadata explicitly:
 
 ```sh
-SITE_URL=https://jellyglance.github.io/Documentation/ mkdocs build --strict
+SITE_URL=http://docs.jellyglance.com/ mkdocs build --strict
 ```
 
-The documentation repository is [JellyGlance/Documentation](https://github.com/JellyGlance/Documentation). The default project Pages URL is `https://jellyglance.github.io/Documentation/` unless a custom domain is configured. Edit-page links assume the publishing branch is `main`.
+The documentation repository is [JellyGlance/Documentation](https://github.com/JellyGlance/Documentation). The live documentation URL is [http://docs.jellyglance.com/](http://docs.jellyglance.com/). Edit-page links assume the publishing branch is `main`.
 
 ## GitHub Pages setup
 
@@ -44,7 +44,7 @@ Set repository variables under **Settings → Secrets and variables → Actions 
 
 | Name | Required? | Value / purpose |
 | --- | --- | --- |
-| `SITE_URL` | No | Full public URL including any repository path, preferably with a trailing slash. Example: `https://jellyglance.github.io/Documentation/` or `https://jellyglance.com/`. When unset, the workflow uses the URL reported by GitHub Pages. |
+| `SITE_URL` | No | Full public URL including any repository path, preferably with a trailing slash. Current live URL: `http://docs.jellyglance.com/`. When unset, the workflow uses the URL reported by GitHub Pages. |
 | `GITHUB_TOKEN` | Automatic | GitHub provides it for workflow actions. Do not create a secret with this name. |
 
 **No custom secrets or variables are required for the default GitHub Pages deployment.** `SITE_URL` changes site metadata; it does not configure DNS or enable Pages.
@@ -53,11 +53,11 @@ The old VitePress workflow used `DOCS_BOT_APP_ID` and `DOCS_BOT_PRIVATE_KEY` to 
 
 ## Optional custom domain
 
-The original site used `jellyglance.com`. This project does not claim that domain by default.
+The documentation uses `docs.jellyglance.com`; `jellyglance.com` remains the project website.
 
-When moving it here, configure the domain in **Settings → Pages → Custom domain**, follow GitHub's DNS instructions, and enable HTTPS when available. Set `SITE_URL` to the matching full URL if you want an explicit override. With this Actions deployment, a `CNAME` file is not required; the domain is configured in Pages settings.
+Configure `docs.jellyglance.com` in **Settings → Pages → Custom domain**, follow GitHub's DNS instructions, and enable HTTPS when available. Set `SITE_URL` to the matching full URL if you want an explicit override. With this Actions deployment, a `CNAME` file is not required; the domain is configured in Pages settings.
 
-A custom domain can only belong to one Pages site at a time. At cutover, remove it from the old repository, configure it here, and disable the old docs publishing workflow to avoid competing deployments. The application source and its existing workflow have not been changed by this migration.
+A custom domain can only belong to one Pages site at a time. If transferring an existing domain, remove it from the old repository before assigning it here. Review the old publishing workflow before cutover. The application source and its existing workflow have not been changed by this migration.
 
 Reference: [Managing a custom domain for GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 

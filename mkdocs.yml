@@ -1,6 +1,6 @@
 site_name: JellyGlance Docs
 site_description: Your Jellyfin command center. Installation, integrations, and everyday operations.
-site_url: !ENV [SITE_URL, 'http://127.0.0.1:8000/']
+site_url: !ENV [SITE_URL, 'http://docs.jellyglance.com/']
 repo_url: https://github.com/Nerdy-Technician/JellyGlance
 repo_name: JellyGlance
 edit_uri: https://github.com/JellyGlance/Documentation/edit/main/docs/

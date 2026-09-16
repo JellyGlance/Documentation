@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="https://jellyglance.com/"><strong>Website</strong></a> ·
-  <a href="docs/index.md"><strong>Explore the docs</strong></a> ·
+  <a href="http://docs.jellyglance.com/"><strong>Explore the docs</strong></a> ·
   <a href="https://github.com/JellyGlance/Documentation"><strong>Docs repository</strong></a> ·
   <a href="https://github.com/Nerdy-Technician/JellyGlance"><strong>JellyGlance</strong></a> ·
   <a href="https://github.com/JellyGlance/Documentation/issues"><strong>Documentation feedback</strong></a> ·
