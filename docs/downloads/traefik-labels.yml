@@ -1,0 +1,24 @@
+# Merge into your EXISTING JellyGlance Compose file, keeping its image,
+# environment, volumes, and depends_on. This is not a standalone stack.
+# Remove the app's published ports mapping if only Traefik should reach it.
+services:
+  jellyglance:
+    networks:
+      - default
+      - proxy
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: proxy
+      traefik.http.routers.jellyglance.rule: Host(`glance.example.com`)
+      traefik.http.routers.jellyglance.entrypoints: websecure
+      traefik.http.routers.jellyglance.tls: "true"
+      traefik.http.routers.jellyglance.tls.certresolver: letsencrypt
+      traefik.http.routers.jellyglance.service: jellyglance
+      traefik.http.services.jellyglance.loadbalancer.server.port: "3000"
+      traefik.http.services.jellyglance.loadbalancer.server.scheme: http
+
+networks:
+  default: {}
+  proxy:
+    external: true
+    name: proxy

@@ -1,0 +1,53 @@
+name: Documentation error
+description: Report incorrect, outdated, unclear, or broken documentation.
+title: "[Docs fix]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us correct the JellyGlance documentation. For application bugs, use the [JellyGlance issue tracker](https://github.com/Nerdy-Technician/JellyGlance/issues).
+        Remove passwords, API keys, tokens, and private information from anything you share.
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      description: Paste the page URL or Markdown file path. Include the section heading if possible.
+      placeholder: "docs/operations/reverse-proxy.md — Traefik"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: What is wrong?
+      options:
+        - Incorrect instructions or example
+        - Outdated information
+        - Unclear wording
+        - Broken link or missing image
+        - Typo or formatting
+        - Other documentation problem
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Describe the problem
+      description: Quote the affected text or explain which instruction failed and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: If you know the correct information, include it and any supporting source.
+  - type: input
+    id: version
+    attributes:
+      label: JellyGlance version
+      description: For setup or behaviour differences, include the application version or container tag.
+      placeholder: "Version or image tag; not applicable for typos"
+  - type: textarea
+    id: context
+    attributes:
+      label: Supporting details
+      description: Optional sanitized logs, screenshots, deployment type, or related links.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: JellyGlance application bugs and feature requests
+    url: https://github.com/Nerdy-Technician/JellyGlance/issues
+    about: Report problems or request features in the JellyGlance application itself.
+  - name: Community help
+    url: https://discord.gg/dMGhv8j2kx
+    about: Ask setup and usage questions in the JellyGlance community.

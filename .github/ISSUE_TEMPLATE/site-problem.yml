@@ -1,0 +1,65 @@
+name: Documentation site problem
+description: Report problems with navigation, search, layout, or accessibility.
+title: "[Docs site]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for the documentation website, not the JellyGlance application.
+        Remove private information from screenshots and logs before uploading them.
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      description: Paste the documentation URL or local preview path.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected feature
+      options:
+        - Navigation or links
+        - Site search
+        - FAQ or integration filters
+        - Layout or mobile display
+        - Keyboard or screen reader accessibility
+        - Colours or readability
+        - Other site behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the page
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and device
+      description: Include browser/version, operating system, and screen size if known. Mention assistive technology where relevant.
+      placeholder: "Firefox on Windows, desktop; Safari on iPhone; keyboard only"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or additional details
+      description: Include the selected theme and zoom level if relevant. Screenshots are optional.

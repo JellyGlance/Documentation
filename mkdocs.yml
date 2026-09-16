@@ -1,0 +1,101 @@
+site_name: JellyGlance Docs
+site_description: Your Jellyfin command center. Installation, integrations, and everyday operations.
+site_url: !ENV [SITE_URL, 'http://127.0.0.1:8000/']
+repo_url: https://github.com/JellyGlance/Documentation
+repo_name: JellyGlance/Documentation
+edit_uri: edit/main/docs/
+strict: true
+use_directory_urls: true
+theme:
+  name: material
+  language: en
+  logo: project-logo.png
+  favicon: favicon.ico
+  font: false
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+extra_javascript:
+  - javascripts/faq.js
+  - javascripts/integrations.js
+extra_css:
+  - stylesheets/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Nerdy-Technician/JellyGlance
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/dMGhv8j2kx
+nav:
+  - Overview: index.md
+  - Get started:
+      - Installation: guide/getting-started.md
+      - FAQ: guide/faq.md
+      - Troubleshooting: guide/troubleshooting.md
+      - Screenshots: guide/screenshots.md
+  - Configuration:
+      - Environment variables: reference/configuration.md
+      - Authentication: guide/authentication.md
+      - Reverse proxy: operations/reverse-proxy.md
+  - Integrations:
+      - Software directory: integrations.md
+      - Jellyfin: integrations/jellyfin.md
+      - Sonarr: integrations/sonarr.md
+      - Radarr: integrations/radarr.md
+      - Jellyseerr and Overseerr: integrations/jellyseerr.md
+      - Download clients: integrations/download-clients.md
+  - Using JellyGlance:
+      - Dashboard and kiosk: guide/dashboard.md
+      - Notifications: operations/notifications.md
+      - Dashboard widgets: operations/widgets.md
+  - Operations:
+      - Updates and recovery: operations/updates.md
+      - Backup and restore: operations/backup-restore.md
+      - Docker: operations/docker.md
+      - Unraid and TrueNAS: operations/catalog.md
+  - Reference:
+      - Background tasks: reference/tasks.md
+      - API cookbook: reference/api-cookbook.md
+      - Architecture: guide/architecture.md
+  - Documentation:
+      - Edit these docs: maintainers/github-pages.md
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn

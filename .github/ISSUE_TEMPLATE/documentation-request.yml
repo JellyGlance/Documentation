@@ -1,0 +1,52 @@
+name: Documentation request
+description: Suggest a new guide, example, or improvement to existing coverage.
+title: "[Docs request]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what you need to learn or accomplish. Requests for new application features belong in the [JellyGlance issue tracker](https://github.com/Nerdy-Technician/JellyGlance/issues).
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: "A walkthrough for connecting my download client"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to do?
+      description: Describe your goal and where the current documentation leaves you stuck.
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: What would help most?
+      options:
+        - Step-by-step guide
+        - Configuration or code example
+        - Troubleshooting instructions
+        - Reference information
+        - Annotated screenshot or diagram
+        - Improvement to an existing page
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: What should the documentation cover?
+      description: Include the questions it should answer and any relevant software or deployment details.
+    validations:
+      required: true
+  - type: input
+    id: existing_page
+    attributes:
+      label: Related documentation
+      description: Link an existing page if this extends or improves it.
+  - type: textarea
+    id: references
+    attributes:
+      label: References or examples
+      description: Optional links to official software documentation or examples. Do not include credentials.
