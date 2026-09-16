@@ -191,3 +191,7 @@
 .marker-alerts { top: 90%; left: 41%; }
 .screen-marker:focus-visible { outline: 3px solid var(--md-accent-fg-color); outline-offset: 3px; }
 .md-typeset .integration-guide-link { display: inline-block; padding-top: .35rem; font-size: .65rem; font-weight: 650; }
+.project-links { margin: .9rem 0; }
+.md-typeset .project-links p { display: flex; flex-wrap: wrap; gap: .45rem; }
+.md-typeset .project-links a { padding: .35rem .65rem; border: 1px solid var(--jg-border); border-radius: .35rem; font-size: .64rem; font-weight: 550; }
+.md-typeset .project-links a:hover { border-color: var(--md-accent-fg-color); background: #9875d10d; }

@@ -1,9 +1,9 @@
 site_name: JellyGlance Docs
 site_description: Your Jellyfin command center. Installation, integrations, and everyday operations.
 site_url: !ENV [SITE_URL, 'http://127.0.0.1:8000/']
-repo_url: https://github.com/JellyGlance/Documentation
-repo_name: JellyGlance/Documentation
-edit_uri: edit/main/docs/
+repo_url: https://github.com/Nerdy-Technician/JellyGlance
+repo_name: JellyGlance
+edit_uri: https://github.com/JellyGlance/Documentation/edit/main/docs/
 strict: true
 use_directory_urls: true
 theme:
@@ -57,8 +57,16 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Nerdy-Technician/JellyGlance
+      name: JellyGlance application on GitHub
+    - icon: material/book-open-page-variant
+      link: https://github.com/JellyGlance/Documentation
+      name: Documentation repository
+    - icon: material/web
+      link: https://jellyglance.com/
+      name: JellyGlance website
     - icon: fontawesome/brands/discord
       link: https://discord.gg/dMGhv8j2kx
+      name: JellyGlance community on Discord
 nav:
   - Overview: index.md
   - Get started:

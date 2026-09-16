@@ -2,6 +2,14 @@
 
 Learn how to install JellyGlance, connect your Jellyfin server, and manage your media stack. JellyGlance runs alongside Jellyfin and brings sessions, users, requests, downloads, and server health into one dashboard.
 
+<div class="project-links" markdown>
+
+[JellyGlance website ↗](https://jellyglance.com/)
+[Application repo ↗](https://github.com/Nerdy-Technician/JellyGlance)
+[Documentation repo ↗](https://github.com/JellyGlance/Documentation)
+
+</div>
+
 <div class="software-grid" markdown>
 
 [![Docker](icons/brands/docker.svg) **Docker**](operations/docker.md)
@@ -72,3 +80,5 @@ The [frequently asked questions](guide/faq.md) cover common installation and con
 - [Reverse proxy configuration](operations/reverse-proxy.md)
 
 For further help, ask in [Discord](https://discord.gg/dMGhv8j2kx) or [open an issue on GitHub](https://github.com/Nerdy-Technician/JellyGlance/issues).
+
+Documentation correction or suggestion? [Open a documentation issue](https://github.com/JellyGlance/Documentation/issues/new/choose).

@@ -16,9 +16,11 @@
 </p>
 
 <p align="center">
+  <a href="https://jellyglance.com/"><strong>Website</strong></a> ·
   <a href="docs/index.md"><strong>Explore the docs</strong></a> ·
+  <a href="https://github.com/JellyGlance/Documentation"><strong>Docs repository</strong></a> ·
   <a href="https://github.com/Nerdy-Technician/JellyGlance"><strong>JellyGlance</strong></a> ·
-  <a href="https://github.com/JellyGlance/Documentation/issues/new/choose"><strong>Documentation feedback</strong></a> ·
+  <a href="https://github.com/JellyGlance/Documentation/issues"><strong>Documentation feedback</strong></a> ·
   <a href="https://discord.gg/dMGhv8j2kx"><strong>Discord</strong></a>
 </p>
 
@@ -52,15 +54,10 @@ JellyGlance brings Jellyfin sessions, libraries, users, requests, downloads, and
 | **Notifications** | Discord, Gotify, ntfy, Telegram, and Pushover |
 | **Technical reference** | Environment variables, permissions, API examples, and downloadable dashboard widgets |
 
-## Built for finding answers
-
-Powered by **MkDocs Material**, with searchable guides, light and dark themes, responsive layouts, branded software cards, and filterable FAQ and integration pages.
-
-The documentation lives independently of the application in **[JellyGlance/Documentation](https://github.com/JellyGlance/Documentation)**. Originally migrated from the application's VitePress docs, it now provides a dedicated home for JellyGlance guides and reference material.
-
 ---
+
+
 
 <p align="center">
   Created for <strong>JellyGlance</strong> by <strong>Nerdy-Technician</strong>.<br>
-  <a href="LICENSE">License</a> · <a href="ASSETS.md">Brand and asset credits</a>
-</p>
+  <a href="LICENSE">License</a> 
