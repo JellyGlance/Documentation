@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  content:
+    name: Content checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      # Fails on invalid JSON or merge-conflict markers; broken relative
+      # Markdown links are reported as warnings only.
+      - name: Validate JSON / Markdown
+        run: python3 .github/scripts/check_content.py
+      - name: Validate downloadable compose file
+        run: docker compose -f docs/downloads/docker-compose.yml config --quiet
