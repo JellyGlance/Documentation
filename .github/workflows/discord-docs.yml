@@ -1,0 +1,64 @@
+name: Notify / Discord Docs Publish
+
+# Post to Discord when the documentation site is published from main, or when
+# a publish fails. Only reads the finished "Documentation" run; it never
+# changes how the site is built or deployed.
+on:
+  workflow_run:
+    workflows:
+      - Documentation
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  pages: read
+
+env:
+  DISCORD_REPO_LABEL: Docs
+
+jobs:
+  notify:
+    name: Post docs publish to Discord
+    if: >-
+      github.event.workflow_run.head_branch == 'main' &&
+      contains(fromJSON('["push","workflow_dispatch"]'), github.event.workflow_run.event) &&
+      contains(fromJSON('["success","failure","timed_out","startup_failure"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: Post docs publish notification
+        env:
+          DISCORD_EVENT_TYPE: workflow
+          WORKFLOW_KIND: docs
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_DEPLOY_WEBHOOK || secrets.DISCORD_BUILD_WEBHOOK || secrets.DISCORD_CI_WEBHOOK }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          WORKFLOW_NAME: Docs publish
+          WORKFLOW_URL: ${{ github.event.workflow_run.html_url }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          TRIGGER_EVENT: ${{ github.event.workflow_run.event }}
+          DISPLAY_TITLE: ${{ github.event.workflow_run.display_title }}
+          ACTOR: ${{ github.event.workflow_run.triggering_actor.login }}
+          RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          if [ -z "${DISCORD_WEBHOOK_URL}" ]; then
+            echo "::warning::DISCORD_DEPLOY_WEBHOOK (or DISCORD_BUILD_WEBHOOK / DISCORD_CI_WEBHOOK) is not set. Skipping."
+            exit 0
+          fi
+          DEPLOY_TARGET="${SITE_URL}"
+          if [ -z "${DEPLOY_TARGET}" ]; then
+            DEPLOY_TARGET="$(gh api "repos/${REPO}/pages" --jq '.html_url' 2>/dev/null || true)"
+          fi
+          export DEPLOY_TARGET
+          node .github/scripts/discord-notify.mjs || echo "::warning::Discord docs publish notification failed."

@@ -1,0 +1,47 @@
+# Path-based PR labels (actions/labeler v5+)
+docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**/*.md"
+          - "*.md"
+
+assets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**/*.png"
+          - "docs/**/*.jpg"
+          - "docs/**/*.svg"
+          - "docs/**/*.ico"
+
+widgets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/widgets/**"
+
+site:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "mkdocs.yml"
+          - "overrides/**"
+          - "docs/javascripts/**"
+          - "docs/stylesheets/**"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "renovate.json"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "requirements*.txt"
+
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*secret*"
+          - "**/security*"
+          - ".github/workflows/codeql.yml"
+          - ".github/workflows/scorecard.yml"
+          - ".github/workflows/security-alert-issues.yml"
