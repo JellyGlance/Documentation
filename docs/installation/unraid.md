@@ -1,12 +1,10 @@
-# ![truenas](../icons/brands/truenas.svg){ .page-brand } Unraid and TrueNAS
+# ![Unraid](../icons/brands/unraid.svg){ .page-brand } ![TrueNAS](../icons/brands/truenas.svg){ .page-brand } Unraid and TrueNAS
 
-JellyGlance is a Docker Compose app with PostgreSQL. On Unraid or TrueNAS, wrap that stack — do not invent a second install path.
+JellyGlance is a Docker Compose app with PostgreSQL. On Unraid or TrueNAS, wrap that stack.
 
-See [Docker](docker.md) for the compose file and the [FAQ](../guide/faq.md) for first-run, API keys, and proxy questions.
+See [Docker](../operations/docker.md) for the compose file and the [FAQ](../guide/faq.md) for first-run, API keys, and proxy questions. UGREEN and Synology have their own install pages: [UGREEN NAS](ugreen.md) and [Synology NAS](synology.md).
 
-This page is documentation only. It does not submit the app to Unraid Community Apps or TrueNAS.
-
-## What a listing should say
+## What you need
 
 - JellyGlance sits **beside** Jellyfin. It is not a Seerr, Sonarr, or Jellyfin admin replacement.
 - Requires a Jellyfin URL + API key and a PostgreSQL database.
@@ -15,7 +13,9 @@ This page is documentation only. It does not submit the app to Unraid Community 
 
 ## Unraid
 
-Use the official image from GitHub Container Registry (`ghcr.io`) matching the [Docker operations](docker.md) compose file. Map:
+Install from [JellyGlance on Unraid Community Apps](https://ca.unraid.net/apps/jellyglance-19yd57n0cdzexj).
+
+Use the official image from GitHub Container Registry (`ghcr.io`) matching the [Docker](../operations/docker.md) compose file. Map:
 
 - `3000` → host web port
 - `./config` → `/app/config`

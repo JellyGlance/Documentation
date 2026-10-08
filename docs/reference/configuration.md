@@ -78,8 +78,10 @@ The environment bootstrap seeds incomplete setup. It is not a general mechanism 
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `JF_HOST` | Unset | Jellyfin base URL reachable from the app container. |
-| `JF_API_KEY` | Unset | Jellyfin API key; required together with `JF_HOST` to seed the connection. |
+| `JF_HOST` | Unset | Jellyfin or Emby base URL reachable from the app container. |
+| `JF_API_KEY` | Unset | API key for that server; required together with `JF_HOST` to seed the connection. |
+| `JF_SERVER_TYPE` | Auto-detect | `jellyfin` or `emby`. When unset, JellyGlance detects the server from `JF_HOST`. |
+| `IS_EMBY_API` | Unset | `true` locks the server to Emby. `false` locks it to Jellyfin. This overrides setup and `JF_SERVER_TYPE`. |
 | `JS_AUTH_MODE` | Empty / local bootstrap | Use `local`. Environment bootstrap does not support Quick Connect or OIDC modes. |
 | `JS_USER` | Unset | Initial local administrator username. |
 | `JS_PASSWORD` | Unset | Initial local administrator password. |
@@ -115,4 +117,4 @@ The `jellyfin` hostname works only when the containers share a network with that
 
 Changing PostgreSQL initialization variables does not change the password of an already initialized database. Update the actual database account and application credentials together when rotating a database password.
 
-Do not commit secrets. These runtime values belong to the application deployment; the documentation site's GitHub configuration is described in [Documentation setup](../maintainers/github-pages.md).
+Do not commit secrets. These runtime values belong to the application deployment.

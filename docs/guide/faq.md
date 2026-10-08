@@ -62,16 +62,17 @@ Change `JWT_SECRET`, `POSTGRES_PASSWORD`, and `TZ` before you expose the stack o
 </details>
 
 <details class="faq-question" id="jellyfin" data-topic="Connection" markdown="1">
-<summary><span class="software-mark brand-jellyfin" aria-hidden="true"></span><span class="faq-topic">Connection</span><span class="faq-title">Jellyfin will not validate the URL or API key</span></summary>
+<summary><span class="software-mark brand-jellyfin" aria-hidden="true"></span><span class="faq-topic">Connection</span><span class="faq-title">Jellyfin or Emby will not validate the URL or API key</span></summary>
 
-Glance has to reach Jellyfin **from the container**, not from your browser.
+Glance has to reach Jellyfin or Emby **from the container**, not from your browser.
 
-- Use a LAN IP or hostname, not `localhost`, if Jellyfin runs on the host or another container.
-- Match `http` / `https` to what Jellyfin actually serves.
-- Use a Jellyfin API key with library and user access, not a user password.
-- If Jellyfin is on another Docker network, put both stacks on the same network or use the host IP.
+- Use a LAN IP or hostname, not `localhost`, if the media server runs on the host or another container.
+- Match `http` / `https` to what that server actually serves.
+- Use an API key with library and user access, not a user password.
+- If the server is on another Docker network, put both stacks on the same network or use the host IP.
+- If auto-detect picks the wrong product, choose Jellyfin or Emby yourself, or set `IS_EMBY_API`.
 
-A `403` from Jellyfin usually means the key is wrong or the user that created it cannot see the libraries.
+A `403` usually means the key is wrong or the user that created it cannot see the libraries.
 
 [Link to this answer](#jellyfin){ .faq-permalink }
 
@@ -81,6 +82,8 @@ A `403` from Jellyfin usually means the key is wrong or the user that created it
 <summary><span class="software-mark brand-jellyglance" aria-hidden="true"></span><span class="faq-topic">Access</span><span class="faq-title">Which login should I pick?</span></summary>
 
 **Quick Connect** — Household already on Jellyfin. They approve login there and inherit the Glance role from Users.
+
+**Emby sign-in** — The media server is Emby. Emby has no Quick Connect, so they sign in with their Emby username and password.
 
 **Local admin** — You want a Glance-only owner account and will add other local users later.
 
@@ -173,7 +176,7 @@ Yes. The compose file has optional `JF_HOST`, `JF_API_KEY`, `JS_AUTH_MODE`, `JS_
 <details class="faq-question" id="nas" data-topic="Basics" markdown="1">
 <summary><span class="software-mark brand-truenas" aria-hidden="true"></span><span class="faq-topic">Basics</span><span class="faq-title">Unraid or TrueNAS?</span></summary>
 
-Same image and volumes as Docker Compose. PostgreSQL is a second container on the same network. Notes are on [Unraid and TrueNAS](../operations/catalog.md).
+Same image and volumes as Docker Compose. PostgreSQL is a second container on the same network. Notes are on [Unraid and TrueNAS](../installation/unraid.md).
 
 [Link to this answer](#nas){ .faq-permalink }
 

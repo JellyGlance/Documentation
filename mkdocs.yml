@@ -26,12 +26,15 @@ theme:
         icon: material/weather-night
         name: Switch to dark mode
   features:
+    - navigation.sections
     - navigation.path
     - navigation.top
     - navigation.footer
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.tabs.link
     - content.action.edit
 plugins:
   - search
@@ -70,8 +73,11 @@ extra:
 nav:
   - Overview: index.md
   - Get started:
-      - Installation: guide/getting-started.md
-      - FAQ: guide/faq.md
+      - Installation:
+          - Getting started: guide/getting-started.md
+          - UGREEN NAS: installation/ugreen.md
+          - Synology NAS: installation/synology.md
+          - Unraid and TrueNAS: installation/unraid.md
       - Troubleshooting: guide/troubleshooting.md
       - Screenshots: guide/screenshots.md
   - Configuration:
@@ -80,11 +86,28 @@ nav:
       - Reverse proxy: operations/reverse-proxy.md
   - Integrations:
       - Software directory: integrations.md
-      - Jellyfin: integrations/jellyfin.md
-      - Sonarr: integrations/sonarr.md
-      - Radarr: integrations/radarr.md
-      - Jellyseerr and Overseerr: integrations/jellyseerr.md
-      - Download clients: integrations/download-clients.md
+      - Media server:
+          - Jellyfin and Emby: integrations/jellyfin.md
+      - Automation:
+          - Sonarr: integrations/sonarr.md
+          - Radarr: integrations/radarr.md
+          - Lidarr: integrations/lidarr.md
+          - Readarr: integrations/readarr.md
+          - Bazarr: integrations/bazarr.md
+          - Prowlarr: integrations/prowlarr.md
+          - SickChill: integrations/sickchill.md
+      - Requests and downloads:
+          - Jellyseerr and Overseerr: integrations/jellyseerr.md
+          - Download clients: integrations/download-clients.md
+      - Apps:
+          - Wizarr: integrations/wizarr.md
+          - Tdarr: integrations/tdarr.md
+          - Maintainerr: integrations/maintainerr.md
+          - Audiobookshelf: integrations/audiobookshelf.md
+          - Companion apps: integrations/companion-apps.md
+      - History and email:
+          - History imports: integrations/imports.md
+          - Newsletter: integrations/newsletter.md
   - Using JellyGlance:
       - Dashboard and kiosk: guide/dashboard.md
       - Notifications: operations/notifications.md
@@ -93,13 +116,11 @@ nav:
       - Updates and recovery: operations/updates.md
       - Backup and restore: operations/backup-restore.md
       - Docker: operations/docker.md
-      - Unraid and TrueNAS: operations/catalog.md
   - Reference:
       - Background tasks: reference/tasks.md
       - API cookbook: reference/api-cookbook.md
       - Architecture: guide/architecture.md
-  - Documentation:
-      - Edit these docs: maintainers/github-pages.md
+  - FAQ: guide/faq.md
 validation:
   nav:
     omitted_files: warn

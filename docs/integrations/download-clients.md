@@ -11,8 +11,9 @@ Use the connection fields shown for the selected client in **Settings → Integr
 | qBittorrent | Web UI URL, username, and password |
 | Transmission | Service URL, username, and password |
 | Deluge | Web UI URL and password |
+| rTorrent | XML-RPC URL, username, and password |
 | SABnzbd | Service URL and API key |
-| NZBGet | Service URL and the credentials exposed by its integration form |
+| NZBGet | Service URL, plus the Restricted username and password from NZBGet **Settings → Security** |
 
 Obtain credentials from the client's Web UI or API configuration. Use the actual configured port; container ports and NAS-published ports can differ. Check client-specific access restrictions if JellyGlance is on another host.
 
@@ -35,6 +36,10 @@ An empty queue is valid; do not start a download solely to populate this view. A
 === "NAS or separate host"
 
     Use the host's LAN address and mapped Web UI port. `localhost` inside JellyGlance points to JellyGlance itself.
+
+=== "rTorrent"
+
+    Use the HTTP URL of the XML-RPC endpoint. JellyGlance tries `/RPC2` on that URL, then the URL itself, and signs in with HTTP basic auth. A bare SCGI socket is not an HTTP URL, so put an HTTP front end such as ruTorrent in front of it first.
 
 ## Troubleshooting
 

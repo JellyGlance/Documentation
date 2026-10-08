@@ -7,8 +7,9 @@ Choose how people sign in during first setup. Review authentication settings lat
 | Method | Best fit | What it needs |
 | --- | --- | --- |
 | Jellyfin Quick Connect | People who already have Jellyfin accounts | A working Jellyfin connection and approval from the user's Jellyfin account |
+| Emby sign-in | People who already have Emby accounts | A working Emby connection and that user's Emby username and password |
 | Local accounts | An administrator or user who needs a JellyGlance-specific login | A local username, password, and assigned role |
-| OIDC | An existing identity provider | Issuer URL, client ID, provider-appropriate client secret, redirect URI, and a matching Jellyfin account |
+| OIDC | An existing identity provider | Issuer URL, client ID, provider-appropriate client secret, redirect URI, and a matching Jellyfin or Emby account |
 
 Keep a tested administrative login available when changing authentication. Check the new method in a separate browser session before ending your existing session.
 
@@ -22,6 +23,16 @@ Keep a tested administrative login available when changing authentication. Check
 The initial setup approval requires a Jellyfin administrator. Subsequent logins use the user's assigned JellyGlance role. Without an explicit assignment, Jellyfin administrators default to **Admin** and other Jellyfin users to **Viewer**.
 
 If approval fails, verify Jellyfin is reachable from the app container and that Quick Connect is available on the server.
+
+## Emby sign-in
+
+Emby has no Quick Connect. When the media server is Emby, JellyGlance asks for the Emby username and password instead of a code.
+
+1. Connect Emby during setup, or set the media server to Emby under **Settings → Integrations → Media Server**.
+2. Choose the media-server login during setup or in Security settings.
+3. Enter the Emby username and password. JellyGlance sends them to Emby and does not store the password.
+
+The first administrator still needs an Emby account that can administer the server. Later users get the JellyGlance role assigned on **Users**.
 
 ## Local accounts
 
@@ -58,13 +69,13 @@ The backend must reach the provider's discovery and token endpoints. When behind
 
 ### Match OIDC identities to Jellyfin
 
-OIDC login requires an existing Jellyfin user. The application compares Jellyfin usernames, ignoring case and surrounding whitespace, against these claims:
+OIDC login requires an existing account on the connected media server. The application compares those usernames, ignoring case and surrounding whitespace, against these claims:
 
 - `jellyfin_username` or `jellyfin_user`
 - `username`, `preferred_username`, `nickname`, or `name`
 - `email` or the part of `email` before `@`
 
-Use a deliberate username claim mapping so identity-provider names match the intended Jellyfin account. An unmatched account is rejected with **No Jellyfin user matches this OIDC account**.
+Use a deliberate username claim mapping so identity-provider names match the intended Jellyfin or Emby account. An unmatched account is rejected with **No Jellyfin user matches this OIDC account**.
 
 OIDC provider groups do not automatically set JellyGlance roles in the inspected login implementation. The application uses the assigned JellyGlance role, otherwise **Admin** for a Jellyfin administrator or **Viewer** for another matched user. A Disabled account cannot sign in.
 

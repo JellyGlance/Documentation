@@ -51,30 +51,31 @@ Then fill in PostgreSQL connection settings and `JWT_SECRET`.
 ## First Setup
 
 1. Open JellyGlance.
-2. Enter your Jellyfin server URL.
-3. Enter a Jellyfin API key so JellyGlance can validate the server and sync library data.
+2. Choose **Auto-detect**, **Jellyfin**, or **Emby**, then enter the server URL.
+3. Enter that server's API key so JellyGlance can validate the server and sync library data.
 4. Choose your admin access mode.
-5. Complete Jellyfin Quick Connect, OIDC/Auth provider details, or local admin creation.
+5. Complete Jellyfin Quick Connect, Emby username and password, OIDC, or local admin creation.
 6. Review the integrations step and connect any services you want ready from the start.
-7. Optionally import older Tautulli or Jellystat watch history.
+7. Optionally import Tautulli, Jellystat, or Trakt watch history, or sync play state from the media server.
 8. Let the first sync finish.
 
-After setup, JellyGlance can use cached artwork from your Jellyfin library for the login background.
+After setup, JellyGlance can use cached artwork from the media server library for the login background.
 
 See the [screenshots gallery](screenshots.md) for the current first-run screens.
 
 ## What To Configure Next
 
-Once Jellyfin is connected, the most useful follow-up configuration lives in **Settings**:
+Once the media server is connected, the most useful follow-up configuration lives in **Settings**:
 
 | Settings Area | What It Controls |
 | --- | --- |
-| Integrations | Jellyfin, 3rd Party Apps, Seerr apps, Arr apps, download clients, health checks, and integration event sources |
-| Tasks | Manual and scheduled sync jobs for Jellyfin, calendar, downloads, health checks, and backups |
+| Integrations | Media server (Jellyfin or Emby), 3rd Party Apps, Seerr apps, Arr apps, download clients, health checks, and integration event sources |
+| Tasks | Manual and scheduled sync jobs for the media server, calendar, downloads, health checks, and backups |
 | Webhooks | One or many webhook destinations with event toggles, test delivery, delivery history, and notification cards that can match the web UI theme or use a default card style |
 | API Key | Create tokens (widgets-only, widgets-write, or full), then copy Homarr widgets or the Homepage YAML pack. The same page can try widget routes in Swagger |
 | Library Settings | Library sync behavior and manual scan options |
-| Imports | Tautulli backup upload, preview, safe import, and manual media linking for unmatched history |
+| Imports | Tautulli and Jellystat backups, Trakt accounts, and play-state sync from the connected media server |
+| Status page | A public `/status` page with uptime, streams, and maintenance, built under **Settings → Status page** |
 | Newsletter | SMTP settings, recipients, preview generation, test sends, manual digest sends, and send history |
 | Backup | Backup export options for JellyGlance data |
 | Logs | Task, sync, webhook, health, and audit history |
@@ -86,7 +87,7 @@ After the first Jellyfin sync, these areas are worth opening first:
 | Page | Why It Matters |
 | --- | --- |
 | Home | Reorder sections, hide noise, choose a preset, pin important widgets, switch density, tune alert rules, or open `/home/kiosk` for a wall display. Family presets surface Watch tonight from household continue watching, shared watchlists, and unfinished titles. |
-| Settings > Integrations > 3rd Party Apps | Connect Wizarr, Tdarr, Maintainerr, or SickChill for invites, transcodes, cleanup visibility, and alternative TV automation. |
+| Settings > Integrations > 3rd Party Apps | Connect Wizarr, Tdarr, Maintainerr, Audiobookshelf, or the companion health checks for invites, transcodes, cleanup, and audiobooks. |
 | Requests | Connect Jellyseerr or Overseerr to review request cards, posters, availability, requester info, status filters, and actions. |
 | Downloads | Connect qBittorrent, Transmission, Deluge, SABnzbd, NZBGet, or rTorrent for live queues, add, pause, and remove. |
 | Active Transcodes | Connect Tdarr to monitor active, queued, and historical transcode work with progress and media artwork. |
@@ -101,14 +102,14 @@ After the first Jellyfin sync, these areas are worth opening first:
 
 JellyGlance can connect to:
 
-- Jellyfin for media, users, sessions, activity, and artwork
-- Wizarr, Tdarr, Maintainerr, and SickChill under **3rd Party Apps**
-- Tautulli backup files for legacy Plex watch-history imports
+- Jellyfin or Emby for media, users, sessions, activity, and artwork
+- Wizarr, Tdarr, Maintainerr, Audiobookshelf, Unpackerr, Kometa, Notifiarr, Recyclarr, and autobrr under **3rd Party Apps**
+- Tautulli and Jellystat backup files, Trakt accounts, and media-server play state for watch history
 - Jellyseerr and Overseerr for media requests and availability checks
-- Sonarr, Radarr, and Lidarr for release calendars; Bazarr and Prowlarr for automation health; SickChill for connect/health only (not calendar sync)
-- qBittorrent, Transmission, Deluge, rTorrent, SABnzbd, and NZBGet for download queues and torrent/magnet submission
-- Discord, Gotify, ntfy, and Telegram webhook endpoints for notifications and delivery history
-- SMTP servers for manual, weekly, or monthly newsletter digest delivery
+- Sonarr, Radarr, Lidarr, and Readarr for release calendars; Bazarr and Prowlarr for automation health; SickChill for TV health only (not calendar sync)
+- qBittorrent, Transmission, Deluge, rTorrent, SABnzbd, and NZBGet for download queues and torrent or NZB submission
+- Discord, Gotify, ntfy, Telegram, and Pushover webhook endpoints for notifications and delivery history
+- SMTP for manual, weekly, or monthly newsletter digest delivery
 
 See [Integrations](../integrations.md) for the complete setup map.
 
@@ -120,12 +121,10 @@ npm run build
 
 ```
 
-To work on this documentation site, follow [Documentation setup](../maintainers/github-pages.md).
-
 ## Next Steps
 
 - Review the [FAQ](./faq.md) if first-run, sync, or a missing page is stuck.
 - Review [Architecture](./architecture.md) to understand the workspace.
 - Review [Integrations](../integrations.md) to map your media stack.
 - Review [Docker](../operations/docker.md) before deploying.
-- Review [Unraid and TrueNAS](../operations/catalog.md) if you are wrapping the compose stack.
+- Review [UGREEN](../installation/ugreen.md), [Synology](../installation/synology.md), or [Unraid and TrueNAS](../installation/unraid.md) if you are installing on a NAS.
