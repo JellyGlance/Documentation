@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/London",
+  "platformCommit": "enabled",
+  "dependencyDashboard": true,
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 0,
+  "semanticCommits": "enabled",
+  "enabledManagers": ["pip_requirements", "github-actions"],
+  "packageRules": [
+    {
+      "matchManagers": ["pip_requirements"],
+      "addLabels": ["dependencies", "python"],
+      "groupName": "mkdocs",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "addLabels": ["dependencies", "github-actions"],
+      "pinDigests": true
+    }
+  ]
+}
