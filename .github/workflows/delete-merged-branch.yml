@@ -5,8 +5,7 @@ on:
     types: [closed]
 
 permissions:
-  contents: write
-  pull-requests: read
+  contents: read
 
 jobs:
   delete:
@@ -14,9 +13,28 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout bot action
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: .github/actions
+
+      # Branch deletion uses the Security Bot app token. The workflow token
+      # stays read-only so a compromised job cannot push to the repository.
+      - name: Mint JellyGlance Security Bot token
+        id: bot
+        uses: ./.github/actions/mint-bot-token
+        with:
+          bot-name: JellyGlance Security Bot
+          app-id: ${{ secrets.SECURITY_BOT_APP_ID }}
+          private-key: ${{ secrets.SECURITY_BOT_PRIVATE_KEY }}
+
       - name: Delete merged head branch
+        if: steps.bot.outputs.using-bot == 'true'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
+          github-token: ${{ steps.bot.outputs.token }}
           script: |
             const pr = context.payload.pull_request;
             const head = pr.head;
@@ -48,3 +66,7 @@ jobs:
               }
               throw error;
             }
+
+      - name: Skip without Security Bot
+        if: steps.bot.outputs.using-bot != 'true'
+        run: echo "::notice::JellyGlance Security Bot is not configured, so the merged branch was left in place."
