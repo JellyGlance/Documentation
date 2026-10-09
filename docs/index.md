@@ -2,6 +2,10 @@
 
 Learn how to install JellyGlance, connect Jellyfin or Emby, and manage your media stack. JellyGlance runs alongside the media server and brings sessions, users, requests, downloads, and server health into one dashboard.
 
+<div class="video-embed">
+<iframe src="https://www.youtube-nocookie.com/embed/IWa0RgbOogQ?start=2" title="JellyGlance trailer: a free, self-hosted dashboard for Jellyfin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 <div class="project-links" markdown>
 
 [Live documentation ↗](http://docs.jellyglance.com/)
