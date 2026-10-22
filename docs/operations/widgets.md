@@ -182,6 +182,7 @@ The same `x-api-token` header works on the rest of `/api`. Compact widget source
 | Endpoint | Returns |
 | --- | --- |
 | `GET /settings/api-key` | In-app API explorer and Swagger UI |
+| `GET /swagger.json` | Swagger 2.0 schema for this install. A published copy is also available: [swagger.json](../reference/swagger.json) |
 | `GET /swagger-ui` | Standalone Swagger UI for the same token-auth routes |
 | `GET /api/widgets` | Catalog of widget endpoints |
 | `GET /api/widgets/homepage` | Combined dashboard snapshot |

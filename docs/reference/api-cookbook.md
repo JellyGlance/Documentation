@@ -2,6 +2,12 @@
 
 Use compact JSON endpoints for server-side dashboards and status checks. Examples below are read-only and use a JellyGlance API key, not a Jellyfin key.
 
+## API schema
+
+[Download the API schema](swagger.json) (Swagger 2.0) and import it into Postman, a code generator, or another client.
+
+That file matches the spec published with these docs. On a running JellyGlance, open `https://<your-jellyglance>/swagger.json` for the spec that matches that install. Use the instance file when you are generating a client for a specific server. `/swagger-ui` on the same host is the interactive view.
+
 ## Create a key
 
 Open **Settings → API Key** and create a widgets-only key for read-only widgets. Send it as the `x-api-token` header. Use a widgets-write key only when you intentionally need supported write actions; full keys have broader access.
