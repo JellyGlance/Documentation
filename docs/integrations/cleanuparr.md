@@ -19,7 +19,7 @@ See Cleanuparr's strikes, removals, cleaned downloads, and download client and a
     http://cleanuparr:11011
     ```
 
-    `11011` is Cleanuparr's default port. Both containers must share a Docker network.
+    Cleanuparr listens on port `11011` by default. Both containers must share a Docker network.
 
 === "LAN or NAS"
 

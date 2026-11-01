@@ -36,12 +36,19 @@ Schedule a weekly or monthly Wrapped for any user, with top shows, hours watched
 
 Users can set up email delivery of their own recap. **Send now** resends the last finished period.
 
+!!! warning "Email needs newsletter SMTP"
+    Wrapped email uses the same SMTP settings as the [newsletter](../integrations/newsletter.md). Set up newsletter SMTP in Settings first, or Wrapped emails will not send. The Recap page warns when SMTP is not set up.
+
 ## Device profiles {#device-profiles}
 
 **Open:** Insights → Devices (admins only)
 
-Every TV, phone, browser and cast device gets its own card:
+Every TV, phone, browser and cast device gets its own card. Use the period picker to choose the time range.
 
-- direct play versus transcode rate and typical bitrate
-- apps and versions it runs, who uses it and when it was last seen
+- play-method mix: direct play, remux and transcode
+- typical bitrate
 - for devices that transcode, the top reasons with a fix hint for that device
+- apps and versions it runs, who uses it and when it was last seen
+
+!!! note
+    This is the Devices feature, sometimes called cast profiles.

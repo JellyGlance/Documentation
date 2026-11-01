@@ -43,7 +43,7 @@ Held jobs show an **In quiet hours** tag. Pressing **Run** still starts a job st
 **Open:** Server → Ops Copilot (admins only)
 
 !!! warning "Preview"
-    Ops Copilot is a preview. Deletions are shown as proposals only and are never carried out.
+    Ops Copilot is a preview. Some actions are proposals only and are never carried out.
 
 Ask plain questions such as:
 
@@ -51,7 +51,18 @@ Ask plain questions such as:
 - "free 500 GB without touching favourites"
 - "anything stuck in downloads?"
 
-It explains transcodes, library space and download health from your own data. Anything that would change something is shown as a **dry-run plan** you approve or cancel. Pausing a stalled download and messaging a session can run after approval, and pauses can be undone. Every question and decision is kept in an audit log.
+It explains transcodes, library space and download health from your own data. Anything that would change something is shown as a **dry-run plan**. Nothing runs until you press **Approve**, and you can cancel instead.
+
+| Action | After Approve |
+| --- | --- |
+| Pause a stalled download | Runs. **Undo** resumes it. |
+| Send a session a message suggesting lower quality | Runs |
+| Delete titles via Sonarr or Radarr (with favourites check) | Proposal only, not executed |
+| Raise a bitrate limit | Proposal only, not executed |
+| Blocklist and re-grab a download | Proposal only, not executed |
+| Clear failed downloads | Proposal only, not executed |
+
+Every question and decision is kept in an audit log. Ops Copilot is separate from [Blobbo](blobbo.md): Blobbo answers questions for everyone, while Ops Copilot is the admin tool for planned changes.
 
 ## Smart request routing {#smart-routing}
 
