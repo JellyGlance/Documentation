@@ -38,6 +38,21 @@ Edits set the preset to Custom and are saved to browser local storage. Do not as
 
 The sessions area shows what Jellyfin reports as currently playing, including client, device, delivery method, progress, and transcode information. Use it to inspect a live stream; use Activity for past playback.
 
+#### Session wall {#session-wall}
+
+Active Sessions has two layouts. Use the toggle beside the heading to switch between **Cards** and **Wall**. Wall shows a compact tile per stream with who is watching, the poster, progress, device, and whether it is direct playing or transcoding. The choice is remembered in this browser. When nobody is playing, the section is hidden and reappears as soon as playback starts.
+
+#### Why is this transcoding? {#transcode-explainer}
+
+Admins see a chip on each transcoding stream, such as **Transcode: Subtitle burn-in** or **Remux: Container**. Tap it for a plain-English reason (HEVC to H.264, audio codec, bitrate over the limit, HDR tone-mapping, image subtitles being burned in, resolution caps or direct play turned off) and a fix hint for that device, for example enabling HEVC in Infuse or Android TV, raising the max streaming bitrate, or switching to SRT subtitles. Remuxes and audio-only transcodes are labelled separately from full video transcodes.
+
+#### Heads-up before removing something being watched {#watching-lock}
+
+Removing a download, re-grabbing a new copy or purging an item checks Active Sessions first. If someone is playing that title, JellyGlance shows who and on which device, and you can cancel or carry on anyway. This is a soft lock: it warns, it does not block.
+
+!!! info "Beta feature"
+    Session wall, the transcode explainer and the watching heads-up ship on the **1.4.2-beta** line.
+
 ### 4. Operational alerts {#alerts}
 
 The operations area brings attention to pending requests, health checks, and backup age. The editor exposes alert thresholds such as backup days, pending requests, missing posters, stream cap, and transcode cap. **Restore alerts** clears dismissed-alert preferences.

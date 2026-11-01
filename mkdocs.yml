@@ -104,6 +104,7 @@ nav:
           - Wizarr: integrations/wizarr.md
           - Tdarr: integrations/tdarr.md
           - Maintainerr: integrations/maintainerr.md
+          - Cleanuparr: integrations/cleanuparr.md
           - Audiobookshelf: integrations/audiobookshelf.md
           - Companion apps: integrations/companion-apps.md
       - History and email:
@@ -111,6 +112,10 @@ nav:
           - Newsletter: integrations/newsletter.md
   - Using JellyGlance:
       - Dashboard and kiosk: guide/dashboard.md
+      - Blobbo: guide/blobbo.md
+      - Statistics and insights: guide/statistics.md
+      - Libraries and storage: guide/libraries.md
+      - Server tools: guide/server-tools.md
       - Notifications: operations/notifications.md
       - Dashboard widgets: operations/widgets.md
   - Operations:

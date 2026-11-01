@@ -2,7 +2,7 @@
 
 Unpackerr, Kometa, Notifiarr, Recyclarr, and autobrr connect from **Settings → Integrations → 3rd Party Apps**. JellyGlance health-checks them and, for autobrr, shows recent filter hits. It does not edit their rules.
 
-## Unpackerr {#unpackerr}
+## ![Unpackerr](../icons/brands/unpackerr.webp){ .page-brand } Unpackerr {#unpackerr}
 
 Enter the URL where Unpackerr answers HTTP. An API key is optional. There is no second Unpackerr console inside JellyGlance: a successful test means the URL responded. Extract paths and *arr connections stay in Unpackerr.
 

@@ -78,6 +78,23 @@ Send JellyGlance events to Discord, Gotify, ntfy, Telegram, or another supported
 
 Available event choices come from the application's event picker. Review quiet hours and card appearance settings as well. Keep separate destinations if operational alerts and new-media notices belong in different channels.
 
+## Outbound webhook rules {#webhook-rules}
+
+!!! info "Beta feature"
+    Available on the **1.4.2-beta** line.
+
+**Open:** Settings → Notifications → outbound webhook rules
+
+Rules send a JSON `POST` to Home Assistant, ntfy, Discord or any URL when a trigger fires.
+
+1. Pick a trigger, for example a stuck or failed download, Cleanuparr needing attention, low disk space, or playback starting.
+2. Optionally filter on any field of the event.
+3. Add headers if the receiver needs them.
+4. Use the default body or write your own JSON with placeholders. **Preview** shows the payload.
+5. Send a test, then save.
+
+Recent deliveries show the status code or error. Saved URLs and header values are encrypted and hidden after saving.
+
 ## Diagnose delivery failures
 
 - **Test fails immediately:** verify URL, credentials, destination type, and network access from the app container.
