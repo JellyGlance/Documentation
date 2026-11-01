@@ -188,9 +188,34 @@ Monitor cleanup collections, scheduled actions, recent activity, storage state, 
 
 </article>
 
+<article class="integration-card" id="cleanuparr" markdown="1">
+
+![Cleanuparr](icons/brands/cleanuparr.webp){ .integration-card-logo loading=lazy }
+
+### Cleanuparr
+
+See Cleanuparr strikes, removals, cleaned downloads, and client and arr health on the Downloads page. Downloads Cleanuparr is already handling skip stuck-download alerts.
+
+<details class="integration-setup" markdown="1">
+<summary>Configuration details</summary>
+
+**Open:** Settings → Integrations → 3rd Party Apps
+
+- Base URL and API key. Include Cleanuparr's `BASE_PATH` if you set one.
+- Test checks `/api/v2/stats`, then save.
+- Add JellyGlance as a Gotify notification provider in Cleanuparr for alerts.
+
+[Link to Cleanuparr](#cleanuparr)
+
+</details>
+
+[Setup walkthrough →](integrations/cleanuparr.md){ .integration-guide-link }
+
+</article>
+
 <article class="integration-card" id="unpackerr" markdown="1">
 
-![Unpackerr](icons/brands/unpackerr.png){ .integration-card-logo loading=lazy }
+![Unpackerr](icons/brands/unpackerr.webp){ .integration-card-logo loading=lazy }
 
 ### Unpackerr
 
